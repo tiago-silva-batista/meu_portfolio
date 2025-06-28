@@ -1,0 +1,78 @@
+@use 'variaveis';
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    color: variaveis.$corTextoSecundario;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    &__content {
+        max-width: 800px;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 24px;
+    color: variaveis.$corTextoSecundario;
+    opacity: 0.8;
+}
+
+.name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 8px;
+    color: variaveis.$corTextoSecundario;
+}
+
+.divider {
+    width: 60px;
+    height: 2px;
+    background-color: variaveis.$corTextoSecundario;
+    border: none;
+    margin: 1rem auto;
+}
+
+.title-gradient {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #a8e063, #8b5cf6, #d946ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 2rem 0;
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    color: variaveis.$corTextoSecundario;
+    margin-bottom: 2rem;
+}
+
+.button-outline {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 2px solid variaveis.$corTextoSecundario;
+    border-radius: 30px;
+    text-decoration: none;
+    color: variaveis.$corTextoSecundario;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: variaveis.$corTextoSecundario;
+        color: variaveis.$corDeFundo;
+    }
+}
