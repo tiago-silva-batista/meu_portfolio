@@ -1,0 +1,77 @@
+.header {
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 16px 60px;
+        max-width: 1280px;
+        margin: 0 auto;
+
+        // fixa o header no topo
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #040714;
+
+        // efeito embaçado ao rolar a página
+        backdrop-filter: blur(10px); // deixa o fundo embaçado
+        -webkit-backdrop-filter: blur(10px); // para Safari
+        background-color: rgba(4, 7, 20, 0.6); // mesma cor com transparência
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__links {
+        display: flex;
+        gap: 40px;
+
+        &__item {
+            list-style: none;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #a8e063;
+            }
+        }
+    }
+
+
+    &__lang {
+        justify-content: end;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        .lang {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+
+            &.active {
+                color: #b4ec51;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        span {
+            color: white;
+            font-weight: 400;
+        }
+    }
+}
