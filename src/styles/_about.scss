@@ -1,0 +1,98 @@
+@use 'variaveis';
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    color: variaveis.$corTextoSecundario;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    &__content {
+        max-width: 800px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        font-size: 24px;
+        letter-spacing: 4px;
+        color: variaveis.$corTextoSecundario;
+    }
+
+    &__line {
+        width: 360px;
+        height: 2px;
+        margin: 8px auto 40px;
+        background: linear-gradient(to right, #9be015, #7a41f5);
+    }
+
+    &__profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+
+    &__photo {
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 40px;
+        border: none;
+    }
+
+    &__button-outline {
+        display: inline-block;
+        padding: 12px 28px;
+        border: 2px solid variaveis.$corTextoSecundario;
+        border-radius: 16px;
+        text-decoration: none;
+        color: variaveis.$corTextoSecundario;
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: variaveis.$corTextoSecundario;
+            color: variaveis.$corDeFundo;
+        }
+    }
+
+    &__description {
+        font-size: 20px;
+        line-height: 2;
+        letter-spacing: 1px;
+        color: variaveis.$corTextoSecundario;
+        margin-bottom: 1.5px;
+    }
+
+    &__icons {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+
+        a {
+            font-size: 24px;
+            color: variaveis.$corTextoSecundario;
+            border: 2px solid variaveis.$corTextoSecundario;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+
+            &:hover {
+                background: variaveis.$corTextoSecundario;
+                color: variaveis.$corDeFundoBotaoDark;
+            }
+        }
+    }
+}
