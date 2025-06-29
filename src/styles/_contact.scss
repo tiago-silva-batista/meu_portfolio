@@ -1,6 +1,6 @@
 @use 'variaveis';
 
-.skills {
+.contact {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,26 +28,5 @@
         height: 2px;
         margin: 8px auto 40px;
         background: linear-gradient(to right, variaveis.$corVerde, variaveis.$corRoxo);
-    }
-
-    &__icons {
-        display: grid;
-        align-items: center;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 40px;
-        max-width: 1200px;
-        margin: 0 auto;
-
-        img {
-            width: 160px;
-            height: 160px;
-            filter: grayscale(1) brightness(0.7);
-            transition: 0.3s;
-
-            &:hover {
-                filter: grayscale(0);
-                transform: scale(1.1);
-            }
-        }
     }
 }

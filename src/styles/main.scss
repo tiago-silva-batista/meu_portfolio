@@ -5,6 +5,8 @@
 @use 'about';
 @use 'skills';
 @use 'projects';
+@use 'contact';
+@use 'footer';
 
 @font-face {
     font-family: Avenir;
@@ -146,6 +148,37 @@ body {
         border-color: variaveis.$corTextoSecundario;
     }
 }
+
+// src/scss/main.scss ou dist/scss/main.scss
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: variaveis.$corVerde;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+
+    &.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+    }
+}
+
 
 /* Scrollbar personalizada para navegadores baseados em WebKit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {

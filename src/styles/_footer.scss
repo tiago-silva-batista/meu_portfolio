@@ -1,0 +1,40 @@
+@use 'variaveis';
+
+.footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // min-height: 100vh;
+    padding: 80px 0 80px 0;
+    background-color: variaveis.$corDeFundo;
+    color: variaveis.$corTextoSecundario;
+    text-align: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw; // ocupa toda a largura da viewport
+        height: 2px;
+        background: linear-gradient(to right, variaveis.$corVerde, variaveis.$corRoxo);
+    }
+
+    &__content {
+        max-width: 1200px;
+        width: 100%;
+        position: relative; // para ficar acima da linha
+        z-index: 1;
+    }
+
+    &__text {
+        font-size: 14px;
+        margin-bottom: 8px;
+        letter-spacing: 2px;
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+}
