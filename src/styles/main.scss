@@ -1,8 +1,10 @@
 @use 'variaveis';
+@use "sass:color";
 @use 'hero';
 @use 'header';
 @use 'about';
 @use 'skills';
+@use 'projects';
 
 @font-face {
     font-family: Avenir;
@@ -127,7 +129,7 @@ body {
     border: 1px solid variaveis.$corDeFundoBotaoPrimario;
 
     &:hover {
-        background-color: lighten(variaveis.$corDeFundoBotaoPrimario, 3%);
+        background-color: color.adjust(variaveis.$corDeFundoBotaoSecundario, $lightness: 3%);
     }
 
     &--secondary {
@@ -135,7 +137,7 @@ body {
         border-color: variaveis.$corDeFundoBotaoSecundario;
 
         &:hover {
-            background-color: lighten(variaveis.$corDeFundoBotaoSecundario, 3%);
+            background-color: color.adjust(variaveis.$corDeFundoBotaoSecundario, $lightness: 3%);
         }
     }
 
@@ -143,4 +145,20 @@ body {
         background-color: rgba(variaveis.$corDeFundoBotaoDark, 0.8);
         border-color: variaveis.$corTextoSecundario;
     }
+}
+
+/* Scrollbar personalizada para navegadores baseados em WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a; // fundo da trilha
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, variaveis.$corVerde, variaveis.$corRoxo);
+    border-radius: 10px;
+    border: 2px solid variaveis.$corDeFundo; // borda opcional para espaçamento
 }

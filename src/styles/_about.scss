@@ -27,7 +27,7 @@
         width: 360px;
         height: 2px;
         margin: 8px auto 40px;
-        background: linear-gradient(to right, #9be015, #7a41f5);
+        background: linear-gradient(to right, variaveis.$corVerde, variaveis.$corRoxo);
     }
 
     &__profile {
@@ -47,9 +47,10 @@
     }
 
     &__button-outline {
-        display: inline-block;
+        display: inline-flex;
+        gap: 8px;
         padding: 12px 28px;
-        border: 2px solid variaveis.$corTextoSecundario;
+        border: 4px solid variaveis.$corTextoSecundario;
         border-radius: 16px;
         text-decoration: none;
         color: variaveis.$corTextoSecundario;
@@ -57,9 +58,21 @@
         letter-spacing: 2px;
         transition: all 0.3s ease;
 
+        img,
+        svg {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
         &:hover {
-            background-color: variaveis.$corTextoSecundario;
-            color: variaveis.$corDeFundo;
+            background-color: variaveis.$corDeFundo;
+            border-color: variaveis.$corRoxo;
+
+            img,
+            svg {
+                transform: scale(0.9)
+            }
         }
     }
 
@@ -78,20 +91,28 @@
         gap: 24px;
 
         a {
-            font-size: 24px;
+            font-size: 32px;
             color: variaveis.$corTextoSecundario;
-            border: 2px solid variaveis.$corTextoSecundario;
+            border: 4px solid variaveis.$corTextoSecundario;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: 0.3s;
 
+            i {
+                transition: transform 0.3s ease;
+            }
+
             &:hover {
-                background: variaveis.$corTextoSecundario;
-                color: variaveis.$corDeFundoBotaoDark;
+                background: variaveis.$corDeFundo;
+                border-color: variaveis.$corRoxo;
+
+                i {
+                    transform: scale(0.8);
+                }
             }
         }
     }

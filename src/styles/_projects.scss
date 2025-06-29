@@ -1,0 +1,19 @@
+@use 'variaveis';
+
+.projects {
+    text-align: center;
+    padding: 100px 20px;
+
+    &__title {
+        font-size: 24px;
+        letter-spacing: 4px;
+        color: variaveis.$corTextoSecundario;
+    }
+
+    &__line {
+        width: 360px;
+        height: 2px;
+        margin: 8px auto 40px;
+        background: linear-gradient(to right, #9be015, #7a41f5);
+    }
+}
