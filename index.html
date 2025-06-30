@@ -183,7 +183,8 @@
             <div class="projects__line"></div>
 
             <div class="projects__grid">
-                <div class="project-card" style="background-image: url('./assets/images/portfolio.png')">
+
+                <div class="project-card" style="background-image: url('./assets/images/portfolio.png')" data-link="">
                     <div class="project-card__header">
                         <h3 class="project-card__title">Portfólio</h3>
                     </div>
@@ -194,11 +195,15 @@
                             <img src="./assets/icons/javascript.png" alt="JavaScript" />
                         </div>
                         <div class="project-card__links">
-                            <a href="https://github.com/..." target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/tiago-silva-batista/meu_portfolio" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" style="background-image: url('./assets/images/disney-plus.png')">
+
+                <div class="project-card" style="background-image: url('./assets/images/disney-plus.png')"
+                    data-link="https://clone-disneyplus-rust-chi.vercel.app/">
                     <div class="project-card__header">
                         <h3 class="project-card__title">Clone Disney Plus</h3>
                     </div>
@@ -209,11 +214,15 @@
                             <img src="./assets/icons/javascript.png" alt="JavaScript" />
                         </div>
                         <div class="project-card__links">
-                            <a href="https://github.com/..." target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/tiago-silva-batista/clone_disneyplus" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" style="background-image: url('./assets/images/eplay.png')">
+
+                <div class="project-card" style="background-image: url('./assets/images/eplay.png')"
+                    data-link="https://eplay-theta-three.vercel.app/">
                     <div class="project-card__header">
                         <h3 class="project-card__title">EPLAY</h3>
                     </div>
@@ -223,11 +232,15 @@
                             <img src="./assets/icons/html5.png" alt="HTML" />
                         </div>
                         <div class="project-card__links">
-                            <a href="https://github.com/..." target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/tiago-silva-batista/eplay" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" style="background-image: url('./assets/images/efood.png')">
+
+                <div class="project-card" style="background-image: url('./assets/images/efood.png')"
+                    data-link="https://efood-kohl-nine.vercel.app/">
                     <div class="project-card__header">
                         <h3 class="project-card__title">EFOOD</h3>
                     </div>
@@ -237,10 +250,13 @@
                             <img src="./assets/icons/styled-components.png" alt="Styled Components" />
                         </div>
                         <div class="project-card__links">
-                            <a href="https://github.com/..." target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/tiago-silva-batista/efood" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -311,6 +327,21 @@
                 })
             }
         })
+
+
+        // Abrir página do site clicado na página de Projetos
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', (event) => {
+                // Se clicou dentro de um link interno (como o GitHub), não faz nada
+                if (event.target.closest('a')) return;
+
+                const link = card.getAttribute('data-link');
+                if (link) {
+                    window.open(link, '_blank');
+                }
+            });
+        });
+
     </script>
 
 </body>

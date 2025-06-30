@@ -51,7 +51,6 @@
     border-radius: 12px;
     width: 520px;
     height: 420px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -66,6 +65,20 @@
             font-size: 1.3rem;
             font-weight: bold;
         }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+    }
+
+
+    * {
+        position: relative;
+        z-index: 1;
     }
 
     &__footer {

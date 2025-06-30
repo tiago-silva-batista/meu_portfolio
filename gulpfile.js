@@ -14,7 +14,12 @@ function images() {
         .pipe(gulp.dest('./dist/images'));
 }
 
-exports.default = gulp.parallel(styles, images);
+function html() {
+    return gulp.src('./src/*.html') // ou onde estiver seu HTML
+        .pipe(gulp.dest('./dist'));
+}
+
+exports.default = gulp.parallel(styles, images, html);
 exports.watch = function () {
     gulp.watch('./src/styles/*.scss', gulp.parallel(styles))
 }
