@@ -55,4 +55,4 @@ function html() {
 }
 
 // Task default
-exports.default = gulp.parallel(styles, images, assets, html);
+exports.default = gulp.parallel(styles, images, assets, html,);
