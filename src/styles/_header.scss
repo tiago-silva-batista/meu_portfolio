@@ -1,3 +1,5 @@
+@use 'variaveis';
+
 .header {
     &__container {
         display: grid;
@@ -13,7 +15,7 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background-color: #040714;
+        background-color: variaveis.$corDeFundo;
 
         // efeito embaçado ao rolar a página
         backdrop-filter: blur(10px); // deixa o fundo embaçado
@@ -36,14 +38,14 @@
         }
 
         a {
-            color: white;
+            color: variaveis.$corTextoSecundario;
             text-decoration: none;
             font-weight: 400;
             letter-spacing: 2px;
             transition: color 0.3s;
 
             &:hover {
-                color: #a8e063;
+                color: variaveis.$corVerde;
             }
         }
     }
@@ -56,12 +58,12 @@
         align-items: center;
 
         .lang {
-            color: white;
+            color: variaveis.$corTextoSecundario;
             text-decoration: none;
             font-weight: bold;
 
             &.active {
-                color: #b4ec51;
+                color: variaveis.$corVerde;
             }
 
             &:hover {
@@ -70,7 +72,7 @@
         }
 
         span {
-            color: white;
+            color: variaveis.$corTextoSecundario;
             font-weight: 400;
         }
     }

@@ -16,19 +16,19 @@
             <nav class="header__nav"></nav>
             <ul class="header__links">
                 <li class="header__links__item">
-                    <a href="#">INÍCIO</a>
+                    <a href="#home">INÍCIO</a>
                 </li>
                 <li class="header__links__item">
-                    <a href="#">SOBRE</a>
+                    <a href="#about">SOBRE</a>
                 </li>
                 <li class="header__links__item">
-                    <a href=" #">HABILIDADES</a>
+                    <a href="#skills">HABILIDADES</a>
                 </li>
                 <li class="header__links__item">
-                    <a href=" #">PROJETOS</a>
+                    <a href="#projects">PROJETOS</a>
                 </li>
                 <li class="header__links__item">
-                    <a href=" #">CONTATO</a>
+                    <a href="#contact">CONTATO</a>
                 </li>
             </ul>
             </nav>
@@ -55,19 +55,22 @@
 
                 Fique à vontade para explorar meu portfólio, conhecer meu trabalho e entrar em contato!
             </p>
-            <a href="#contato" class="button-outline">CONTATO</a>
-
+            <a href="#contact" class="button-outline" data-label="CONTATO"><span>CONTATO</span></a>
         </div>
     </section>
 
-    <section class="about" id="sobre">
+    <section class="about" id="about">
         <div class="about__content">
             <h2 class="about__title">SOBRE MIM</h2>
             <div class="about__line"></div>
 
             <div class="about__profile">
                 <img src="./assets/images/foto-perfil.jpeg" alt="Foto de perfil" class="about__photo" />
-                <a href="curriculo.pdf" target="_blank" class="button-outline">CURRÍCULO</a>
+                <a href="./assets/pdf/curriculo.pdf" target="_blank"
+                    class="about__button-outline about__button-outline--text-scale" data-label="CURRÍCULO">
+                    <span>CURRÍCULO</span>
+                </a>
+
             </div>
 
             <p class="about__description">
@@ -89,15 +92,17 @@
             </p>
 
             <div class="about__icons">
-                <a href="#" class="about__button-outline" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" class="about__button-outline" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="mailto:email@exemplo.com" class="about__button-outline"><i
-                        class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/feed/" class="about__button-outline" target="_blank"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/tiago-silva-batista" class="about__button-outline" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="mailto:tiagosbsantos@outlook.com" class="about__button-outline">
+                    <i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-    <section class="skills" id="habilidades">
+    <section class="skills" id="skills">
         <div class="skills__content">
             <h2 class="skills__title">HABILIDADES</h2>
             <div class="skills__line"></div>
@@ -122,7 +127,7 @@
         </div>
     </section>
 
-    <section class="projects" id="projetos">
+    <section class="projects" id="projects">
         <div class="projects__content">
             <h2 class="projects__title">PROJETOS</h2>
             <div class="projects__line"></div>
@@ -190,7 +195,7 @@
         </div>
     </section>
 
-    <section class="contact" id="contato">
+    <section class="contact" id="contact">
         <div class="contact__content">
             <h2 class="contact__title">CONTATO</h2>
             <div class="contact__line"></div>
@@ -208,8 +213,6 @@
             <p class="footer__text">Todos os direitos reservados.</p>
         </div>
     </section>
-
-
 
     <a href="#" class="back-to-top" aria-label="Voltar ao topo" id="backToTop">
         <i class="fas fa-arrow-up"></i>
