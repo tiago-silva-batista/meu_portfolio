@@ -38,15 +38,48 @@
         max-width: 1200px;
         margin: 0 auto;
 
-        img {
+        .skills__icon-box {
+            position: relative;
             width: 160px;
             height: 160px;
-            filter: grayscale(1) brightness(0.7);
-            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: border 0.3s;
 
             &:hover {
-                filter: grayscale(0);
-                transform: scale(1.1);
+                border: 4px solid variaveis.$corRoxo;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                filter: grayscale(1) brightness(0.7);
+                transition: filter 0.3s;
+            }
+
+            &:hover img {
+                filter: blur(4px) brightness(0.3); // ícone embaçado
+            }
+
+            .skills__icon-label {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: variaveis.$corTextoSecundario;
+                font-size: 1rem;
+                font-weight: bold;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            }
+
+            &:hover .skills__icon-label {
+                opacity: 1;
             }
         }
     }
