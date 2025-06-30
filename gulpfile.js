@@ -15,7 +15,7 @@ function images() {
 }
 
 function html() {
-    return gulp.src('./*.html') // ou onde estiver seu HTML
+    return gulp.src('./src/*.html') // ou onde estiver seu HTML
         .pipe(gulp.dest('./dist'));
 }
 
