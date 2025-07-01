@@ -108,10 +108,9 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: #000;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(4, 7, 20, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .header__nav {
@@ -565,12 +564,12 @@
 
 @font-face {
   font-family: Avenir;
-  src: url(../../assets/fonts/Avenir-Regular.woff2);
+  src: url(../assets/fonts/Avenir-Regular.woff2);
   font-weight: 400;
 }
 @font-face {
   font-family: Avenir;
-  src: url(../../assets/fonts/Avenir-Bold.woff2);
+  src: url(../assets/fonts/Avenir-Bold.woff2);
   font-weight: 700;
 }
 * {

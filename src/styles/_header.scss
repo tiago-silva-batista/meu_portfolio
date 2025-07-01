@@ -15,12 +15,12 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background-color: variaveis.$corDeFundo;
+        // background-color: variaveis.$corDeFundo;
 
         // efeito embaçado ao rolar a página
         backdrop-filter: blur(10px); // deixa o fundo embaçado
         -webkit-backdrop-filter: blur(10px); // para Safari
-        background-color: rgba(4, 7, 20, 0.6); // mesma cor com transparência
+        background-color: rgba(0, 0, 0, 0.6); // mesma cor com transparência
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
