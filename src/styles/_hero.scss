@@ -18,7 +18,8 @@
     }
 }
 
-.subtitle {
+.hero__content .subtitle {
+    display: inline-block;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 24px;
@@ -26,22 +27,23 @@
     opacity: 0.8;
 }
 
-.name {
+.hero__content .name {
     font-size: 3rem;
     font-weight: 700;
-    margin-top: 8px;
     color: variaveis.$corTextoSecundario;
+    margin-bottom: 40px;
 }
 
-.divider {
+.hero__content .divider {
     width: 120px;
     height: 2px;
     background-color: variaveis.$corTextoSecundario;
     border: none;
     margin: 1rem auto;
+    margin-bottom: 40px;
 }
 
-.title-gradient {
+.hero__content .title-gradient {
     font-size: 4.5rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -52,15 +54,15 @@
     line-height: 1.2;
 }
 
-.description {
+.hero__content .description {
     font-size: 20px;
     line-height: 2;
     letter-spacing: 1px;
     color: variaveis.$corTextoSecundario;
-    margin-bottom: 1.5px;
+    margin-bottom: 40px;
 }
 
-.button-outline {
+.hero__content .button-outline {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -77,6 +79,7 @@
     font-size: 1rem;
     overflow: hidden;
     position: relative;
+    margin-bottom: 80px;
 
     &::after {
         content: attr(data-label);

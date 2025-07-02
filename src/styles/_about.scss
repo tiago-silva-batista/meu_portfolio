@@ -57,6 +57,7 @@
         font-weight: bold;
         letter-spacing: 2px;
         transition: all 0.3s ease;
+        margin-bottom: 40px;
 
         img,
         svg {
@@ -106,11 +107,11 @@
         line-height: 2;
         letter-spacing: 1px;
         color: variaveis.$corTextoSecundario;
-        margin-bottom: 1.5px;
+        margin-bottom: 40px;
     }
 
     &__icons {
-        margin-top: 40px;
+        margin-bottom: 80px;
         display: flex;
         justify-content: center;
         gap: 24px;

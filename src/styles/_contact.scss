@@ -4,12 +4,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     padding: 4rem 2rem;
     color: variaveis.$corTextoSecundario;
     position: relative;
     overflow: hidden;
     text-align: center;
+    margin-bottom: 80px;
 
     &__content {
         max-width: 1200px;
