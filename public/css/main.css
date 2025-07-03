@@ -41,6 +41,7 @@
 }
 
 .hero__content .title-gradient {
+  white-space: pre-line;
   font-size: 4.5rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -56,7 +57,7 @@
   line-height: 2;
   letter-spacing: 1px;
   color: #f9f9f9;
-  margin-bottom: 40px;
+  width: 780px;
 }
 
 .hero__content .button-outline {
@@ -259,6 +260,7 @@
   letter-spacing: 1px;
   color: #f9f9f9;
   margin-bottom: 40px;
+  width: 780px;
 }
 .about__icons {
   margin-bottom: 80px;

@@ -16,73 +16,79 @@
             <nav class="header__nav"></nav>
             <ul class="header__links">
                 <li class="header__links__item">
-                    <a href="#hero">INÍCIO</a>
+                    <a href="#hero" data-i18n="nav.home">INÍCIO</a>
                 </li>
                 <li class="header__links__item">
-                    <a href="#about">SOBRE</a>
+                    <a href="#about" data-i18n="nav.about">SOBRE</a>
                 </li>
                 <li class="header__links__item">
-                    <a href="#skills">HABILIDADES</a>
+                    <a href="#skills" data-i18n="nav.skills">HABILIDADES</a>
                 </li>
                 <li class="header__links__item">
-                    <a href="#projects">PROJETOS</a>
+                    <a href="#projects" data-i18n="nav.projects">PROJETOS</a>
                 </li>
                 <li class="header__links__item">
-                    <a href="#contact">CONTATO</a>
+                    <a href="#contact" data-i18n="nav.contact">CONTATO</a>
                 </li>
             </ul>
             </nav>
 
             <div class="header__lang">
-                <a href="#" class="lang active">PT</a>
+                <a href="#" class="lang active" data-lang="pt">PT</a>
                 <span>|</span>
-                <a href="#" class="lang">EN</a>
+                <a href="#" class="lang" data-lang="en">EN</a>
             </div>
         </div>
     </header>
 
     <section class="hero section" id="hero">
         <div class="hero__content">
-            <span class="subtitle">OLÁ, EU SOU</span>
+            <span class="subtitle" data-i18n="hero.subtitle">OLÁ, EU SOU</span>
             <h1 class="name">TIAGO SILVA BATISTA</h1>
             <hr class="divider" />
-            <h2 class="title-gradient">DESENVOLVEDOR<br />FULL STACK</h2>
-            <p class="description">
-                Seja bem-vindo(a)! Sou um desenvolvedor Full Stack com foco em Front-end e UI Design, apaixonado por
-                transformar ideias em interfaces funcionais e visualmente marcantes.<br />
+            <h2 class="title-gradient" data-i18n="hero.role">
+                DESENVOLVEDOR FULL STACK
+            </h2>
 
-                Aqui você encontrará alguns dos meus projetos, onde aplico criatividade e usabilidade.<br />
+            <p class="description" data-i18n="hero.description">
+                Seja bem-vindo(a)! Sou um desenvolvedor Full Stack com foco em Front-end e UI Design, apaixonado por
+                transformar ideias em interfaces funcionais e visualmente marcantes.
+
+                Aqui você encontrará alguns dos meus projetos, onde aplico criatividade e usabilidade.
 
                 Fique à vontade para explorar meu portfólio, conhecer meu trabalho e entrar em contato!
             </p>
-            <a href="#contact" class="button-outline" data-label="CONTATO"><span>CONTATO</span></a>
+            <a href="#contact" class="button-outline" data-i18n="hero.contact">
+                <span data-i18n="hero.contact">CONTATO</span>
+            </a>
+
         </div>
     </section>
 
     <section class="about section" id="about">
         <div class="about__content">
-            <h2 class="about__title">SOBRE MIM</h2>
+            <h2 class="about__title" data-i18n="about.title">SOBRE MIM</h2>
             <div class="about__line"></div>
 
             <div class="about__profile">
                 <img src="assets/images/foto-perfil.jpeg" alt="Foto de perfil" class="about__photo" />
                 <a href="assets/pdf/curriculo.pdf" target="_blank"
-                    class="about__button-outline about__button-outline--text-scale" data-label="CURRÍCULO">
-                    <span>CURRÍCULO</span>
+                    class="about__button-outline about__button-outline--text-scale" data-i18n="about.resume">
+                    <span data-i18n="about.resume">CURRÍCULO</span>
                 </a>
             </div>
 
-            <p class="about__description">
+            <p class="about__description" data-i18n="about.description">
                 Depois de anos atuando no ramo metalúrgico, estou dando um novo passo na minha jornada
-                profissional.<br />
+                profissional.
 
                 Sou formado em Engenharia Civil e também Técnico em Edificações, e ao longo da minha trajetória
                 desenvolvi
-                muita experiência prática, principalmente na área industrial.<br />
+                muita experiência prática, principalmente na área industrial.
 
                 Agora, estou em transição de carreira, migrando para o universo da tecnologia, uma área que sempre me
                 despertou interesse e que oferece
-                infinitas possibilidades de aprendizado e crescimento.<br />
+                infinitas possibilidades de aprendizado e crescimento.
 
                 Tenho estudado bastante, com foco em Python, e me aprofundando cada vez mais no ecossistema da
                 programação e da tecnologia. Estou aberto a conexões, trocas de experiência, projetos e oportunidades
@@ -103,7 +109,7 @@
 
     <section class="skills section" id="skills">
         <div class="skills__content">
-            <h2 class="skills__title">HABILIDADES</h2>
+            <h2 class="skills__title" data-i18n="skills.title">HABILIDADES</h2>
             <div class="skills__line"></div>
 
             <div class="skills__icons">
@@ -178,7 +184,7 @@
 
     <section class="projects section" id="projects">
         <div class="projects__content">
-            <h2 class="projects__title">PROJETOS</h2>
+            <h2 class="projects__title" data-i18n="projects.title">PROJETOS</h2>
             <div class="projects__line"></div>
 
             <div class="projects__grid">
@@ -263,10 +269,10 @@
 
     <section class="contact section" id="contact">
         <div class="contact__content">
-            <h2 class="contact__title">CONTATO</h2>
+            <h2 class="contact__title" data-i18n="contact.title">CONTATO</h2>
             <div class="contact__line"></div>
 
-            <p class="contact__subtitle">Vamos Trabalhar Juntos!</p>
+            <p class="contact__subtitle" data-i18n="contact.subtitle">Vamos Trabalhar Juntos!</p>
 
             <ul class="contact__list">
                 <li>
@@ -291,7 +297,7 @@
 
 
 
-            <p class="contact__note">SINTA-SE À VONTADE PARA ENTRAR EM CONTATO</p>
+            <p class="contact__note" data-i18n="contact.note">SINTA-SE À VONTADE PARA ENTRAR EM CONTATO</p>
         </div>
     </section>
 
@@ -299,7 +305,7 @@
         <div class="footer__content">
             <div class="footer__line"></div>
             <p class="footer__text">&copy; 2025 Tiago Silva Batista dos Santos.</p>
-            <p class="footer__text">Todos os direitos reservados.</p>
+            <p class="footer__text" data-i18n="footer.subtitle">Todos os direitos reservados.</p>
         </div>
     </section>
 
@@ -339,6 +345,117 @@
                 }
             });
         });
+
+        // Troca de idiomas
+        const translations = {
+            pt: {
+                // Seção Header
+                "nav.home": "INÍCIO",
+                "nav.about": "SOBRE",
+                "nav.skills": "HABILIDADES",
+                "nav.projects": "PROJETOS",
+                "nav.contact": "CONTATO",
+                // Seção Hero
+                "hero.subtitle": "OLÁ, EU SOU",
+                "hero.role": "DESENVOLVEDOR\nFULL STACK",
+                "hero.description": `
+      Seja bem-vindo(a)! Sou um desenvolvedor Full Stack com foco em Front-end e UI Design, apaixonado por transformar ideias em interfaces funcionais e visualmente marcantes.
+      Aqui você encontrará alguns dos meus projetos, onde aplico criatividade e usabilidade.
+      Fique à vontade para explorar meu portfólio, conhecer meu trabalho e entrar em contato!
+    `,
+                "hero.contact": "CONTATO",
+                // Seção About
+                "about.title": "SOBRE MIM",
+                "about.resume": "CURRÍCULO",
+                "about.description": `
+      Depois de anos atuando no ramo metalúrgico, estou dando um novo passo na minha jornada profissional.
+
+      Sou formado em Engenharia Civil e também Técnico em Edificações, e ao longo da minha trajetória desenvolvi muita experiência prática, principalmente na área industrial.
+
+      Agora, estou em transição de carreira, migrando para o universo da tecnologia, uma área que sempre me despertou interesse e que oferece infinitas possibilidades de aprendizado e crescimento.
+
+      Tenho estudado bastante, com foco em Python, e me aprofundando cada vez mais no ecossistema da programação e da tecnologia. Estou aberto a conexões, trocas de experiência, projetos e oportunidades que possam somar nesse momento de mudança.
+    `,
+                //Seção Skills
+                "skills.title": "HABILIDADES",
+                // Seção Projects
+                "projects.title": "PROJETOS",
+                // Seção Contact
+                "contact.title": "CONTATO",
+                "contact.subtitle": "Vamos Trabalhar Juntos!",
+                "contact.note": "SINTA-SE À VONTADE PARA ENTRAR EM CONTATO",
+                // Seção Footer
+                "footer.subtitle": "Todos os direitos reservados."
+            },
+            en: {
+                // Seção Header
+                "nav.home": "HOME",
+                "nav.about": "ABOUT",
+                "nav.skills": "SKILLS",
+                "nav.projects": "PROJECTS",
+                "nav.contact": "CONTACT",
+                // Seção Hero
+                "hero.subtitle": "HELLO, I AM",
+                "hero.role": "FULL STACK\nDEVELOPER",
+                "hero.description": `
+      Welcome! I'm a Full Stack developer focused on Front-end and UI Design, passionate about turning ideas into functional and visually striking interfaces.
+      Here you'll find some of my projects, where I apply creativity and usability.
+      Feel free to explore my portfolio, get to know my work, and get in touch!
+    `,
+                "hero.contact": "CONTACT",
+                // Seção About
+                "about.title": "ABOUT ME",
+                "about.resume": "RESUME",
+                "about.description": `
+      After years working in the metallurgical field, I'm taking a new step in my professional journey.
+
+      I have a degree in Civil Engineering and a Technical Degree in Buildings, and throughout my path I've gained practical experience, mainly in the industrial area.
+
+      Now I'm transitioning to the world of technology — an area that has always interested me and offers endless possibilities for learning and growth.
+
+      I've been studying a lot, focusing on Python, and diving deeper into the programming and tech ecosystem. I'm open to connections, experience exchanges, projects, and opportunities that can contribute to this moment of change.
+    `,
+                //Seção Skills
+                "skills.title": "SKILLS",
+                // Seção Projects
+                "projects.title": "PROJECTS",
+                // Seção Contact
+                "contact.title": "CONTACT",
+                "contact.subtitle": "Let's Work Together!",
+                "contact.note": "FEEL FREE TO GET IN TOUCH",
+                // Seção Footer
+                "footer.subtitle": "All rights reserved."
+            }
+        };
+
+        let currentLang = 'pt';
+
+        function updateTexts() {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            document.querySelectorAll(".lang").forEach(el => {
+                el.classList.toggle("active", el.getAttribute("data-lang") === currentLang);
+            });
+        }
+
+        document.querySelectorAll(".lang").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const lang = btn.getAttribute("data-lang");
+                if (lang !== currentLang) {
+                    currentLang = lang;
+                    updateTexts();
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", updateTexts);
+
 
     </script>
 </body>
