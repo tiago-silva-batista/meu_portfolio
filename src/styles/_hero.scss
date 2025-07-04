@@ -107,3 +107,47 @@
         background-color: variaveis.$corDeFundo;
     }
 }
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 120px 1rem 4rem;
+        text-align: center;
+        // scroll-margin-top: 240px;
+    }
+
+    .hero__content .subtitle {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .hero__content .name {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+
+    .hero__content .title-gradient {
+        font-size: 3.5rem;
+        margin: 1.5rem 0;
+        font-weight: bold;
+    }
+
+    .hero__content .description {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 0 3rem;
+    }
+
+    .hero__content .divider {
+        width: 120px;
+        margin-bottom: 24px;
+    }
+
+    .hero__content .button-outline {
+        width: 100%;
+        max-width: 160px;
+        height: 45px;
+        font-size: 14px;
+        border-width: 3px;
+    }
+}

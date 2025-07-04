@@ -164,6 +164,7 @@ body {
 
 // src/scss/main.scss ou dist/scss/main.scss
 
+// Botão voltar ao topo da página
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -191,6 +192,18 @@ body {
         transform: scale(1);
     }
 }
+
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    }
+}
+
 
 
 /* Scrollbar personalizada para navegadores baseados em WebKit (Chrome, Edge, Safari) */

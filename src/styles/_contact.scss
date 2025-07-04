@@ -78,12 +78,41 @@
         }
     }
 
-
-
     &__note {
         font-size: 24px;
         font-weight: bold;
         color: variaveis.$corVerde;
         letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 120px 1.5rem 4rem;
+
+        &__title {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        &__line {
+            width: 180px;
+            margin-bottom: 24px;
+        }
+
+        &__subtitle {
+            font-size: 32px; // antes 56px
+            margin-bottom: 24px;
+        }
+
+        &__list li {
+            font-size: 18px; // antes 24px
+            margin-bottom: 12px;
+        }
+
+        &__note {
+            font-size: 18px; // antes 24px
+            letter-spacing: 1px;
+        }
     }
 }

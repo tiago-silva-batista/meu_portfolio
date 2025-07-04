@@ -84,3 +84,38 @@
         }
     }
 }
+
+
+@media (max-width: 768px) {
+    .skills {
+        &__title {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        &__line {
+            width: 180px;
+            margin-bottom: 24px;
+        }
+    }
+
+    .skills__icons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+
+        .skills__icon-box {
+            width: 120px;
+            height: 120px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .skills__icons {
+        grid-template-columns: 1fr;
+
+        .skills__icon-box {
+            margin: 0 auto;
+        }
+    }
+}

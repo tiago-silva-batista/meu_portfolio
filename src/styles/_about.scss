@@ -144,3 +144,61 @@
         }
     }
 }
+
+
+@media (max-width: 768px) {
+    .about {
+        padding: 120px 1.5rem 4rem;
+        text-align: center;
+
+        &__title {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        &__line {
+            width: 180px;
+            margin-bottom: 24px;
+        }
+
+        &__photo {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 24px;
+        }
+
+        &__description {
+            width: 100%;
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 0 3rem;
+        }
+
+        &__button-outline {
+            width: 100%;
+            max-width: 160px;
+            height: 45px;
+            font-size: 14px;
+            border-width: 3px;
+
+            img,
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &__icons {
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 40px;
+
+            a {
+                width: 64px;
+                height: 64px;
+                font-size: 24px;
+                border-width: 3px;
+            }
+        }
+    }
+}

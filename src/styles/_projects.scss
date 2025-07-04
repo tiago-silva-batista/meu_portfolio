@@ -113,3 +113,17 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .projects {
+        &__title {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        &__line {
+            width: 180px;
+            margin-bottom: 24px;
+        }
+    }
+}

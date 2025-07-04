@@ -15,7 +15,6 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        // background-color: variaveis.$corDeFundo;
 
         // efeito embaçado ao rolar a página
         backdrop-filter: blur(10px); // deixa o fundo embaçado
@@ -82,14 +81,4 @@
     color: variaveis.$corVerde;
     font-weight: none;
     position: relative;
-
-    // &::after {
-    //     content: '';
-    //     position: absolute;
-    //     bottom: -6px;
-    //     left: 0;
-    //     width: 100%;
-    //     height: 2px;
-    //     background: variaveis.$corVerde;
-    // }
 }
