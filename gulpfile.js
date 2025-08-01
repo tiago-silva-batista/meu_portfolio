@@ -18,8 +18,9 @@ function styles() {
 
 // Copia imagens SEM NENHUM PROCESSAMENTO
 function images() {
-    return gulp.src('./assets/images/**/*.{jpg,jpeg,png}')
-        .pipe(gulp.dest('./public/assets/images'));
+    return gulp.src('./assets/images/**/*.*', { encoding: false })
+        .pipe(gulp.dest('./public/assets/images'))
+        .pipe(browserSync.stream());
 }
 
 // Copia ícones, fontes, PDF e HTML normalmente
@@ -29,13 +30,15 @@ function fonts() {
 }
 
 function icons() {
-    return gulp.src('./assets/icons/**/*')
-        .pipe(gulp.dest('./public/assets/icons'));
+    return gulp.src('./assets/icons/**/*.*', { encoding: false })
+        .pipe(gulp.dest('./public/assets/icons'))
+        .pipe(browserSync.stream());
 }
 
 function pdf() {
-    return gulp.src('./assets/pdf/**/*')
-        .pipe(gulp.dest('./public/assets/pdf'));
+    return gulp.src('./assets/pdf/**/*.*', { encoding: false })
+        .pipe(gulp.dest('./public/assets/pdf'))
+        .pipe(browserSync.stream());
 }
 
 function html() {
