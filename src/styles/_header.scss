@@ -82,3 +82,133 @@
     font-weight: none;
     position: relative;
 }
+
+/* ====== Mobile drawer (até 480px) ====== */
+@media (max-width: 480px) {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    /* botão hamburguer */
+    .header__toggle {
+        display: flex;
+        /* garante que apareça no mobile */
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        width: 48px;
+        height: 48px;
+        border: 2px solid rgba(255, 255, 255, .7);
+        border-radius: 12px;
+        background: transparent;
+        align-items: center;
+        justify-content: center;
+        z-index: 1300;
+        /* acima do menu e backdrop */
+    }
+
+    .header__toggle .bar {
+        position: absolute;
+        width: 22px;
+        height: 2px;
+        background: #fff;
+        transition: transform .25s ease, opacity .2s ease;
+    }
+
+    .header__toggle .bar:nth-child(1) {
+        transform: translateY(-6px);
+    }
+
+    .header__toggle .bar:nth-child(2) {
+        transform: translateY(0);
+    }
+
+    .header__toggle .bar:nth-child(3) {
+        transform: translateY(6px);
+    }
+
+    /* anima para X quando o header está aberto */
+    .header.open .header__toggle .bar:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .header.open .header__toggle .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header.open .header__toggle .bar:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    /* lista de links como off-canvas */
+    #menu-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        /* ocupa toda a linha horizontal */
+        z-index: 1200;
+
+        /* altura automática (só até "Contato") */
+        height: auto;
+        max-height: none;
+        overflow: visible;
+
+        /* visual */
+        background: rgba(12, 12, 12, 0.92);
+        backdrop-filter: blur(4px);
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+        /* layout centralizado */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* centraliza os itens */
+        text-align: center;
+        gap: 20px;
+
+        /* espaçamentos (considera a altura do botão/área do topo) */
+        padding: 88px 20px 20px;
+
+        /* animação tipo “drop-down” a partir do topo */
+        transform: translateY(-100%);
+        transition: transform .32s ease;
+    }
+
+    /* ao abrir */
+    .header.open #menu-links {
+        transform: translateY(0);
+    }
+
+    /* links do menu maiores e centralizados */
+    #menu-links .header__links__item a {
+        display: inline-block;
+        font-size: 22px;
+        letter-spacing: 2px;
+        text-decoration: none;
+    }
+
+    /* o backdrop não é mais necessário; esconda no mobile */
+    .header__backdrop {
+        display: none !important;
+    }
+
+    .header.open .header__backdrop {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* trava o scroll do body quando o menu está aberto (classe aplicada no JS) */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* esconde a lista horizontal padrão, se você tiver algo assim no desktop */
+    .header__links {
+        /* o seletor acima (#menu-links) já cobre; este é só para garantir */
+    }
+}

@@ -30,10 +30,17 @@ html {
     scroll-behavior: smooth;
 }
 
-
 body {
     background-color: variaveis.$corDeFundo;
     font-family: Avenir, sans-serif;
+}
+
+/* ===== NOVO: variáveis de espaçamento global ===== */
+:root {
+    /* ajuste se o header mudar de altura */
+    --header-h: 72px;
+    --section-gap: 64px;
+    --section-gap-sm: 40px;
 }
 
 @mixin text($fontSize: 16px) {
@@ -118,15 +125,37 @@ body {
     }
 }
 
+/* ===== AJUSTADO: padroniza o topo de TODAS as seções ===== */
 .section {
-    padding: 80px 0;
+    padding-top: calc(var(--header-h) + var(--section-gap));
+    padding-bottom: 72px;
 
     @media (max-width: 768px) {
-        padding: 40px 0;
+        padding-top: calc(var(--header-h) + var(--section-gap-sm));
+        padding-bottom: 40px;
     }
 }
 
 
+/* ===== NOVO: zera margens de títulos e normaliza a “linha” abaixo ===== */
+.about__title,
+.skills__title,
+.projects__title,
+.contact__title {
+    margin: 0 0 24px;
+    /* nada em cima, 24px abaixo */
+    line-height: 1.1;
+}
+
+.about__line,
+.skills__line,
+.projects__line,
+.contact__line {
+    margin: 0 auto 48px;
+    /* central e sem margem no topo */
+}
+
+/* Botões */
 .button {
     display: flex;
     align-items: center;
@@ -162,9 +191,7 @@ body {
     }
 }
 
-// src/scss/main.scss ou dist/scss/main.scss
-
-// Botão voltar ao topo da página
+/* Botão voltar ao topo da página */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -204,20 +231,80 @@ body {
     }
 }
 
-
-
-/* Scrollbar personalizada para navegadores baseados em WebKit (Chrome, Edge, Safari) */
+/* Scrollbar personalizada (WebKit) */
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: variaveis.$corDeFundoBotaoDark; // fundo da trilha
+    background: variaveis.$corDeFundoBotaoDark;
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, variaveis.$corVerde, variaveis.$corRoxo);
     border-radius: 10px;
-    border: 2px solid variaveis.$corDeFundo; // borda opcional para espaçamento
+    border: 2px solid variaveis.$corDeFundo;
+}
+
+/* ===== Ajuste individual por seção para igualar ao SOBRE MIM ===== */
+/* ajuste este valor se quiser um pouquinho mais/menos perto do topo */
+:root {
+    --anchor-offset-about: 62px;
+    --title-line-w: 360px;
+    --title-line-w-sm: 180px;
+}
+
+/* SOBRE MIM (referência) */
+#about {
+    scroll-margin-top: var(--anchor-offset-about) !important;
+}
+
+.about__line,
+.skills__line,
+.projects__line,
+.contact__line {
+    width: var(--title-line-w) !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+
+    .about__line,
+    .skills__line,
+    .projects__line,
+    .contact__line {
+        width: var(--title-line-w-sm) !important;
+    }
+}
+
+/* HABILIDADES / PROJETOS / CONTATO: 
+   - usam o MESMO offset de âncora
+   - removem qualquer padding/margem de topo que cause diferença visual
+*/
+#skills,
+#projects,
+#contact {
+    scroll-margin-top: var(--anchor-offset-about) !important;
+}
+
+.skills,
+.projects,
+.contact {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* títulos e linhas sem margem extra em cima */
+.skills__title,
+.projects__title,
+.contact__title {
+    margin-top: 0 !important;
+}
+
+.skills__line,
+.projects__line,
+.contact__line {
+    margin-top: 0 !important;
 }

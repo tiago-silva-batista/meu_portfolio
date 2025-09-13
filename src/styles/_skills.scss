@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 4rem 2rem;
+    padding: 0 2rem;
     color: variaveis.$corTextoSecundario;
     position: relative;
     overflow: hidden;
@@ -112,10 +112,12 @@
 
 @media (max-width: 480px) {
     .skills__icons {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
 
         .skills__icon-box {
             margin: 0 auto;
+            width: 86px;
+            height: 86px;
         }
     }
 }

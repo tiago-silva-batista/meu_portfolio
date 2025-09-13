@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .hero {
   display: flex;
   align-items: center;
@@ -136,6 +137,34 @@
     border-width: 3px;
   }
 }
+/* ===== Correção do corte no mobile (<= 768px) ===== */
+@media (max-width: 768px) {
+  /* 1) Não recorta o conteúdo do herói no mobile */
+  .hero {
+    overflow: visible;
+    padding: 120px 1rem 4rem;
+    /* mantém o que você já tinha */
+  }
+  /* 2) Título elástico e sem risco de corte */
+  .hero__content .title-gradient {
+    /* mantém a quebra por \n do seu texto (pre-line), mas evita clipping */
+    white-space: pre-line;
+    /* tamanho responsivo: entre 2.4rem e 3.2rem, escalando com a viewport */
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+    line-height: 1.1;
+    margin: 1rem 0;
+    /* evita qualquer estouro lateral */
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  /* 3) Garante respiro lateral do bloco para não encostar nas bordas */
+  .hero__content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 12px;
+    /* leve respiro sem “apertar” o título */
+  }
+}
 .header__container {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -202,12 +231,121 @@
   position: relative;
 }
 
+/* ====== Mobile drawer (até 480px) ====== */
+@media (max-width: 480px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  /* botão hamburguer */
+  .header__toggle {
+    display: flex;
+    /* garante que apareça no mobile */
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    z-index: 1300;
+    /* acima do menu e backdrop */
+  }
+  .header__toggle .bar {
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .header__toggle .bar:nth-child(1) {
+    transform: translateY(-6px);
+  }
+  .header__toggle .bar:nth-child(2) {
+    transform: translateY(0);
+  }
+  .header__toggle .bar:nth-child(3) {
+    transform: translateY(6px);
+  }
+  /* anima para X quando o header está aberto */
+  .header.open .header__toggle .bar:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .header.open .header__toggle .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .header.open .header__toggle .bar:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  /* lista de links como off-canvas */
+  #menu-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* ocupa toda a linha horizontal */
+    z-index: 1200;
+    /* altura automática (só até "Contato") */
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    /* visual */
+    background: rgba(12, 12, 12, 0.92);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    /* layout centralizado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centraliza os itens */
+    text-align: center;
+    gap: 20px;
+    /* espaçamentos (considera a altura do botão/área do topo) */
+    padding: 88px 20px 20px;
+    /* animação tipo “drop-down” a partir do topo */
+    transform: translateY(-100%);
+    transition: transform 0.32s ease;
+  }
+  /* ao abrir */
+  .header.open #menu-links {
+    transform: translateY(0);
+  }
+  /* links do menu maiores e centralizados */
+  #menu-links .header__links__item a {
+    display: inline-block;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  /* o backdrop não é mais necessário; esconda no mobile */
+  .header__backdrop {
+    display: none !important;
+  }
+  .header.open .header__backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  /* trava o scroll do body quando o menu está aberto (classe aplicada no JS) */
+  body.menu-open {
+    overflow: hidden;
+  }
+  /* esconde a lista horizontal padrão, se você tiver algo assim no desktop */
+  .header__links {
+    /* o seletor acima (#menu-links) já cobre; este é só para garantir */
+  }
+}
 .about {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 0 2rem;
   color: #f9f9f9;
   position: relative;
   overflow: hidden;
@@ -329,7 +467,7 @@
 
 @media (max-width: 768px) {
   .about {
-    padding: 120px 1.5rem 4rem;
+    padding: 0 1.5rem;
     text-align: center;
   }
   .about__title {
@@ -380,7 +518,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 0 2rem;
   color: #f9f9f9;
   position: relative;
   overflow: hidden;
@@ -470,10 +608,12 @@
 }
 @media (max-width: 480px) {
   .skills__icons {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
   .skills__icons .skills__icon-box {
     margin: 0 auto;
+    width: 86px;
+    height: 86px;
   }
 }
 .projects {
@@ -481,7 +621,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 0 2rem;
   color: #f9f9f9;
   position: relative;
   overflow: hidden;
@@ -521,8 +661,10 @@
   background-size: cover;
   background-position: center;
   border-radius: 12px;
-  width: 520px;
-  height: 420px;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 5/4;
+  height: auto;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -574,21 +716,123 @@
   transform: scale(1.2);
 }
 
+.projects__grid {
+  justify-items: center;
+}
+
+/* ====== <=768px ====== */
 @media (max-width: 768px) {
-  .projects__title {
-    font-size: 20px;
-    letter-spacing: 2px;
+  .projects {
+    padding: 0 1rem;
   }
-  .projects__line {
-    width: 180px;
-    margin-bottom: 24px;
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .project-card {
+    max-width: 680px;
+    padding: 16px;
+  }
+  .project-card__title {
+    font-size: 1.1rem;
+  }
+  .project-card__techs img {
+    width: 26px;
+    height: 26px;
+  }
+}
+/* ====== <=480px ====== */
+@media (max-width: 480px) {
+  .projects {
+    padding: 0 12px;
+  }
+  .projects__grid {
+    gap: 16px;
+  }
+  .project-card {
+    width: 100% !important;
+    max-width: 360px;
+    height: auto;
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  .project-card__title {
+    font-size: 1rem;
+  }
+  .project-card__techs img {
+    width: 22px;
+    height: 22px;
+  }
+}
+/* ====== 768px–1023px ====== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .projects {
+    padding: 0 12px;
+  }
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .project-card {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 4/3;
+    /* maior que mobile */
+    padding: 20px;
+  }
+  .project-card__title {
+    font-size: 1.35rem;
+  }
+  .project-card__techs img {
+    width: 28px;
+    height: 28px;
+  }
+}
+/* ====== >=1024px ====== */
+@media (min-width: 1024px) {
+  .projects {
+    padding: 0 16px;
+  }
+  .projects__content {
+    max-width: 1280px;
+  }
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .project-card {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 3/2;
+    /* bem maior que mobile */
+    padding: 24px;
+  }
+  .project-card__title {
+    font-size: 1.6rem;
+  }
+  .project-card__techs img {
+    width: 32px;
+    height: 32px;
+  }
+}
+/* ====== >=1440px ====== */
+@media (min-width: 1440px) {
+  .projects__content {
+    max-width: 1400px;
+  }
+  .projects__grid {
+    gap: 40px;
+  }
+  .project-card {
+    aspect-ratio: 16/10;
   }
 }
 .contact {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 0 2rem;
   color: #f9f9f9;
   position: relative;
   overflow: hidden;
@@ -661,7 +905,7 @@
 
 @media (max-width: 768px) {
   .contact {
-    padding: 120px 1.5rem 4rem;
+    padding: 0 1.5rem;
   }
   .contact__title {
     font-size: 20px;
@@ -684,6 +928,50 @@
     letter-spacing: 1px;
   }
 }
+/* === Contato: alinhado com as demais, com leve respiro e footer visível === */
+/* usa o mesmo offset das outras (sem +24) */
+#contact {
+  scroll-margin-top: var(--anchor-offset-about) !important;
+}
+
+.contact {
+  /* dá um pequeno respiro acima do título para não “colar” no menu
+   e também para não aparecer pedaço dos cards de Projetos no topo */
+  padding-top: 64px !important;
+  /* deixa o footer aparecer, mas sem “centralizar” a seção */
+  min-height: calc(100vh - var(--anchor-offset-about) - 100px) !important;
+  padding-bottom: 120px !important;
+  margin-bottom: 0 !important;
+}
+
+/* título e linha consistentes */
+.contact__title {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+.contact__line {
+  margin-top: 0 !important;
+  margin-bottom: 80px !important;
+}
+
+/* mais ar entre os elementos (sem exagerar) */
+.contact__subtitle {
+  margin: 8px 0 120px !important;
+}
+
+.contact__list {
+  margin-bottom: 56px !important;
+}
+
+.contact__list li {
+  margin-bottom: 44px !important;
+}
+
+.contact__note {
+  margin-top: 120px !important;
+}
+
 .footer {
   position: relative;
   display: flex;
@@ -744,6 +1032,14 @@ html {
 body {
   background-color: #000;
   font-family: Avenir, sans-serif;
+}
+
+/* ===== NOVO: variáveis de espaçamento global ===== */
+:root {
+  /* ajuste se o header mudar de altura */
+  --header-h: 72px;
+  --section-gap: 64px;
+  --section-gap-sm: 40px;
 }
 
 .text--big {
@@ -853,15 +1149,37 @@ body {
   }
 }
 
+/* ===== AJUSTADO: padroniza o topo de TODAS as seções ===== */
 .section {
-  padding: 80px 0;
+  padding-top: calc(var(--header-h) + var(--section-gap));
+  padding-bottom: 72px;
 }
 @media (max-width: 768px) {
   .section {
-    padding: 40px 0;
+    padding-top: calc(var(--header-h) + var(--section-gap-sm));
+    padding-bottom: 40px;
   }
 }
 
+/* ===== NOVO: zera margens de títulos e normaliza a “linha” abaixo ===== */
+.about__title,
+.skills__title,
+.projects__title,
+.contact__title {
+  margin: 0 0 24px;
+  /* nada em cima, 24px abaixo */
+  line-height: 1.1;
+}
+
+.about__line,
+.skills__line,
+.projects__line,
+.contact__line {
+  margin: 0 auto 48px;
+  /* central e sem margem no topo */
+}
+
+/* Botões */
 .button {
   display: flex;
   align-items: center;
@@ -893,6 +1211,7 @@ body {
   border-color: #f9f9f9;
 }
 
+/* Botão voltar ao topo da página */
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -930,7 +1249,7 @@ body {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
   }
 }
-/* Scrollbar personalizada para navegadores baseados em WebKit (Chrome, Edge, Safari) */
+/* Scrollbar personalizada (WebKit) */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -944,4 +1263,64 @@ body {
   background: linear-gradient(to bottom, #9be015, #7a41f5);
   border-radius: 10px;
   border: 2px solid #000;
+}
+
+/* ===== Ajuste individual por seção para igualar ao SOBRE MIM ===== */
+/* ajuste este valor se quiser um pouquinho mais/menos perto do topo */
+:root {
+  --anchor-offset-about: 62px;
+  --title-line-w: 360px;
+  --title-line-w-sm: 180px;
+}
+
+/* SOBRE MIM (referência) */
+#about {
+  scroll-margin-top: var(--anchor-offset-about) !important;
+}
+
+.about__line,
+.skills__line,
+.projects__line,
+.contact__line {
+  width: var(--title-line-w) !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .about__line,
+  .skills__line,
+  .projects__line,
+  .contact__line {
+    width: var(--title-line-w-sm) !important;
+  }
+}
+/* HABILIDADES / PROJETOS / CONTATO: 
+   - usam o MESMO offset de âncora
+   - removem qualquer padding/margem de topo que cause diferença visual
+*/
+#skills,
+#projects,
+#contact {
+  scroll-margin-top: var(--anchor-offset-about) !important;
+}
+
+.skills,
+.projects,
+.contact {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* títulos e linhas sem margem extra em cima */
+.skills__title,
+.projects__title,
+.contact__title {
+  margin-top: 0 !important;
+}
+
+.skills__line,
+.projects__line,
+.contact__line {
+  margin-top: 0 !important;
 }

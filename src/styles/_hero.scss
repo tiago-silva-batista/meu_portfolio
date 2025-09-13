@@ -112,7 +112,6 @@
     .hero {
         padding: 120px 1rem 4rem;
         text-align: center;
-        // scroll-margin-top: 240px;
     }
 
     .hero__content .subtitle {
@@ -149,5 +148,37 @@
         height: 45px;
         font-size: 14px;
         border-width: 3px;
+    }
+}
+
+/* ===== Correção do corte no mobile (<= 768px) ===== */
+@media (max-width: 768px) {
+
+    /* 1) Não recorta o conteúdo do herói no mobile */
+    .hero {
+        overflow: visible;
+        padding: 120px 1rem 4rem;
+        /* mantém o que você já tinha */
+    }
+
+    /* 2) Título elástico e sem risco de corte */
+    .hero__content .title-gradient {
+        /* mantém a quebra por \n do seu texto (pre-line), mas evita clipping */
+        white-space: pre-line;
+        /* tamanho responsivo: entre 2.4rem e 3.2rem, escalando com a viewport */
+        font-size: clamp(2.4rem, 9vw, 3.2rem);
+        line-height: 1.1;
+        margin: 1rem 0;
+        /* evita qualquer estouro lateral */
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    /* 3) Garante respiro lateral do bloco para não encostar nas bordas */
+    .hero__content {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 0 12px;
+        /* leve respiro sem “apertar” o título */
     }
 }

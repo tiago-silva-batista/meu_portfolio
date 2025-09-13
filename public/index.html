@@ -13,24 +13,30 @@
     <header class="header" id="home">
         <div class="header__container">
 
-            <nav class="header__nav"></nav>
-            <ul class="header__links">
-                <li class="header__links__item">
-                    <a href="#hero" data-i18n="nav.home">INÍCIO</a>
-                </li>
-                <li class="header__links__item">
-                    <a href="#about" data-i18n="nav.about">SOBRE</a>
-                </li>
-                <li class="header__links__item">
-                    <a href="#skills" data-i18n="nav.skills">HABILIDADES</a>
-                </li>
-                <li class="header__links__item">
-                    <a href="#projects" data-i18n="nav.projects">PROJETOS</a>
-                </li>
-                <li class="header__links__item">
-                    <a href="#contact" data-i18n="nav.contact">CONTATO</a>
-                </li>
-            </ul>
+            <button class="header__toggle" aria-label="Abrir menu" aria-controls="menu-links" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="header__nav">
+                <ul class="header__links" id="menu-links">
+                    <li class="header__links__item">
+                        <a href="#hero" data-i18n="nav.home">INÍCIO</a>
+                    </li>
+                    <li class="header__links__item">
+                        <a href="#about" data-i18n="nav.about">SOBRE</a>
+                    </li>
+                    <li class="header__links__item">
+                        <a href="#skills" data-i18n="nav.skills">HABILIDADES</a>
+                    </li>
+                    <li class="header__links__item">
+                        <a href="#projects" data-i18n="nav.projects">PROJETOS</a>
+                    </li>
+                    <li class="header__links__item">
+                        <a href="#contact" data-i18n="nav.contact">CONTATO</a>
+                    </li>
+                </ul>
             </nav>
 
             <div class="header__lang">
@@ -38,6 +44,9 @@
                 <span>|</span>
                 <a href="#" class="lang" data-lang="en">EN</a>
             </div>
+
+            <!-- Backdrop para quando o menu abre no mobile -->
+            <div class="header__backdrop" aria-hidden="true"></div>
         </div>
     </header>
 
@@ -205,19 +214,18 @@
 
             <div class="projects__grid">
 
-                <div class="project-card" style="background-image: url('/assets/images/portfolio.png')"
-                    data-link="https://meu-portfolio-five-delta.vercel.app/">
+                <div class="project-card" style="background-image: url('/assets/images/twitter.png')"
+                    data-link="https://twitter-clone-beta-sandy.vercel.app/">
                     <div class="project-card__header">
-                        <h3 class="project-card__title">Portfólio</h3>
+                        <h3 class="project-card__title">Clone Twitter</h3>
                     </div>
                     <div class="project-card__footer">
                         <div class="project-card__techs">
-                            <img src="/assets/icons/sass.png" alt="SASS" />
-                            <img src="/assets/icons/gulp.png" alt="Gulp" />
-                            <img src="/assets/icons/javascript.png" alt="JavaScript" />
+                            <img src="/assets/icons/python.png" alt="Python" />
+                            <img src="/assets/icons/react.png" alt="React" />
                         </div>
                         <div class="project-card__links">
-                            <a href="https://github.com/tiago-silva-batista/meu_portfolio" target="_blank">
+                            <a href="https://github.com/tiago-silva-batista/twitter-clone" target="_blank">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -474,6 +482,49 @@
 
 
     </script>
+
+    <script>
+        (function () {
+            const header = document.querySelector('.header');
+            const toggle = document.querySelector('.header__toggle');
+            const backdrop = document.querySelector('.header__backdrop');
+            const menu = document.getElementById('menu-links');
+            const links = menu ? menu.querySelectorAll('a') : [];
+
+            if (!header || !toggle || !menu) return;
+
+            function openMenu() {
+                header.classList.add('open');
+                toggle.setAttribute('aria-expanded', 'true');
+                document.body.classList.add('menu-open');
+            }
+
+            function closeMenu() {
+                header.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+            }
+
+            toggle.addEventListener('click', () => {
+                const isOpen = header.classList.contains('open');
+                isOpen ? closeMenu() : openMenu();
+            });
+
+            if (backdrop) {
+                backdrop.addEventListener('click', closeMenu);
+            }
+
+            links.forEach((a) => {
+                a.addEventListener('click', closeMenu);
+            });
+
+            // Fecha no ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
+
 </body>
 
 </html>

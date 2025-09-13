@@ -2,9 +2,9 @@
 
 .contact {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 4rem 2rem;
+    padding: 0 2rem;
     color: variaveis.$corTextoSecundario;
     position: relative;
     overflow: hidden;
@@ -88,7 +88,7 @@
 
 @media (max-width: 768px) {
     .contact {
-        padding: 120px 1.5rem 4rem;
+        padding: 0 1.5rem;
 
         &__title {
             font-size: 20px;
@@ -115,4 +115,50 @@
             letter-spacing: 1px;
         }
     }
+}
+
+/* === Contato: alinhado com as demais, com leve respiro e footer visível === */
+
+/* usa o mesmo offset das outras (sem +24) */
+#contact {
+    scroll-margin-top: var(--anchor-offset-about) !important;
+}
+
+.contact {
+    /* dá um pequeno respiro acima do título para não “colar” no menu
+     e também para não aparecer pedaço dos cards de Projetos no topo */
+    padding-top: 64px !important;
+
+    /* deixa o footer aparecer, mas sem “centralizar” a seção */
+    min-height: calc(100vh - var(--anchor-offset-about) - 100px) !important;
+    padding-bottom: 120px !important;
+    margin-bottom: 0 !important;
+}
+
+/* título e linha consistentes */
+.contact__title {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+.contact__line {
+    margin-top: 0 !important;
+    margin-bottom: 80px !important;
+}
+
+/* mais ar entre os elementos (sem exagerar) */
+.contact__subtitle {
+    margin: 8px 0 120px !important;
+}
+
+.contact__list {
+    margin-bottom: 56px !important;
+}
+
+.contact__list li {
+    margin-bottom: 44px !important;
+}
+
+.contact__note {
+    margin-top: 120px !important;
 }
